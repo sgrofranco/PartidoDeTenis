@@ -101,4 +101,16 @@ class JugadorTest {
 			      .trim());
 	}
 	
+	@Test 
+	void EstadisticasReiniciadasParaJugadorFrancoLuegoDeGanar(){
+		Jugador jugador = new Jugador("Franco");
+		for(int i = 0; i < 72 ; i++) {
+			jugador.pelotaGanada();
+		}
+		
+		Assert.assertEquals("Los set de Franco son 0",jugador.getSet());
+	}
+	
+	
+	
 }
