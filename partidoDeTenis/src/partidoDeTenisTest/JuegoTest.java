@@ -38,5 +38,17 @@ class JuegoTest {
 		}
 		Assert.assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
 	}
+	
+	@Test
+	void JuegoGanadoPorDavid() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco,David);
+		for(int i = 0; i < 72 ; i++) {
+			tenis.pelotaGanadaParaJugador2();
+		}
+		Assert.assertEquals("Ha ganado el jugador David", outputStreamCaptor.toString().trim());
+	}
+
 
 }
