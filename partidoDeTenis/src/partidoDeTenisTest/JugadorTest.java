@@ -61,6 +61,12 @@ class JugadorTest {
 		jugador.pelotaGanada();
 		Assert.assertEquals("La puntuacion de Franco es 40",jugador.getPuntuacion());
 	}
-
-
+	
+	@Test 
+	void UnGameGanadoParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		jugador.gameGanado();
+		Assert.assertEquals("Los games de Franco son 1",jugador.getGames());
+	}
+	
 }
