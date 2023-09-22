@@ -44,7 +44,17 @@ public class Jugador {
 	}
 	
 	private void setGanado() {
-		this.set = this.set+1;
+		if(this.set< 2) {	
+			this.set = this.set+1;
+		} else {
+			jugadorGano();
+		}
+	}
+
+	private void jugadorGano() {
+		System.out.println("Ha ganado el jugador "+this.nombre);
+		reiniciarEstadisticas();
+		
 	}
 
 	public String getGames() {
@@ -53,6 +63,12 @@ public class Jugador {
 	
 	public String getSet() {
 		return "Los set de " +this.nombre+ " son "+ this.set.toString();
+	}
+	
+	private void reiniciarEstadisticas() {
+		this.games = 0;
+		this.puntuacion = 0;
+		this.set = 0;
 	}
 
 }

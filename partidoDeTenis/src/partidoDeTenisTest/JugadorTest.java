@@ -91,4 +91,14 @@ class JugadorTest {
 		Assert.assertEquals("Los set de Franco son 1",jugador.getSet());
 	}
 	
+	@Test 
+	void TresSetGanadosParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		for(int i = 0; i < 72 ; i++) {
+			jugador.pelotaGanada();
+		}
+		Assert.assertEquals("Ha ganado el jugador Franco",outputStreamCaptor.toString()
+			      .trim());
+	}
+	
 }
