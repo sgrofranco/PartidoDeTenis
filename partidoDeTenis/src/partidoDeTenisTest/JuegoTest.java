@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 import junit.framework.Assert;
 import partidoDeTenis.Juego;
+import partidoDeTenis.Jugador;
 
 class JuegoTest {
 
@@ -25,9 +26,17 @@ class JuegoTest {
 	@AfterEach
 	public void tearDown() {
 		System.setOut(standardOut);
-	}	
+	}
+
 	@Test
-	void JugadorFrancoGanaUnGame() {
+	void JuegoGanadoPorFranco() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco,David);
+		for(int i = 0; i < 72 ; i++) {
+			tenis.pelotaGanadaParaJugador1();
+		}
+		Assert.assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
 	}
 
 }
