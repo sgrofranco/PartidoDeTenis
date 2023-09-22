@@ -18,8 +18,13 @@ public class Jugador {
 		return "La puntuacion de "+this.nombre+ " es "+this.puntuacion.toString();
 	}
 
-	public void sumarPunto() {
-		this.puntuacion = this.puntuacion + 15;
+	public void pelotaGanada() {
+		if(this.puntuacion<30) {
+			this.puntuacion = this.puntuacion + 15;
+		} else {
+			this.puntuacion = this.puntuacion + 10;
+		}
+		
 	}
 	
 	

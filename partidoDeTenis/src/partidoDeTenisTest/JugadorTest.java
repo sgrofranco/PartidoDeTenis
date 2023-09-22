@@ -39,10 +39,28 @@ class JugadorTest {
 	}
 	
 	@Test 
-	void sumarPuntosAJugadorFranco(){
+	void UnaPelotaGanadaParaJugadorFranco(){
 		Jugador jugador = new Jugador("Franco");
-		jugador.sumarPunto();
+		jugador.pelotaGanada();
 		Assert.assertEquals("La puntuacion de Franco es 15",jugador.getPuntuacion());
 	}
+	
+	@Test 
+	void DosPelotsaGanadasParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		Assert.assertEquals("La puntuacion de Franco es 30",jugador.getPuntuacion());
+	}
+	
+	@Test 
+	void TresPelotsaGanadasParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		Assert.assertEquals("La puntuacion de Franco es 40",jugador.getPuntuacion());
+	}
+
 
 }
