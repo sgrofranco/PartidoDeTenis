@@ -17,6 +17,10 @@ public class Jugador {
 	public String getPuntuacion() {
 		return "La puntuacion de "+this.nombre+ " es "+this.puntuacion.toString();
 	}
+
+	public void sumarPunto() {
+		this.puntuacion = this.puntuacion + 15;
+	}
 	
 	
 	
