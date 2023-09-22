@@ -65,8 +65,30 @@ class JugadorTest {
 	@Test 
 	void UnGameGanadoParaJugadorFranco(){
 		Jugador jugador = new Jugador("Franco");
-		jugador.gameGanado();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
 		Assert.assertEquals("Los games de Franco son 1",jugador.getGames());
+	}
+	
+	
+	@Test 
+	void DosGamesGanadosParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		for(int i = 0; i < 8 ; i++) {
+			jugador.pelotaGanada();
+		}
+		Assert.assertEquals("Los games de Franco son 2",jugador.getGames());
+	}
+	
+	@Test 
+	void UnSetGanadosParaJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		for(int i = 0; i < 24 ; i++) {
+			jugador.pelotaGanada();
+		}
+		Assert.assertEquals("Los set de Franco son 1",jugador.getSet());
 	}
 	
 }
