@@ -27,9 +27,15 @@ class JugadorTest {
 	}
 
 	@Test
-	void mostrarNombreDeJugador() {
+	void mostrarNombreDeJugadorFranco() {
 		Jugador jugador = new Jugador("Franco");
 		Assert.assertEquals("Franco",jugador.getNombre());
+	}
+	
+	@Test 
+	void obtenerPuntacionDeJugadorFranco(){
+		Jugador jugador = new Jugador("Franco");
+		Assert.assertEquals("La puntuacion de Franco es 0",jugador.getPuntuacion());
 	}
 
 }
