@@ -111,6 +111,12 @@ class JugadorTest {
 		Assert.assertEquals("Los set de Franco son 0",jugador.getSet());
 	}
 	
-	
+	@Test 
+	public void jugadorFrancoEstaEnDeuce(){
+	    	Jugador jugador = new Jugador("Franco");
+	    	jugador.setDeuce(true);
+	    	assertEquals(true,jugador.getDeuce());
+    	
+       }
 	
 }
