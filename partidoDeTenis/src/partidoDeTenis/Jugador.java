@@ -7,6 +7,7 @@ public class Jugador {
 	private Integer games;
 	private Integer set;
 	private Boolean enDeuce;
+	private Boolean enVentaja;
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
@@ -14,6 +15,7 @@ public class Jugador {
 		this.games = 0;
 		this.set = 0;
 		this.enDeuce = false;
+		this.enVentaja = false;
 	}
 
 	public String getNombre() {
@@ -31,6 +33,20 @@ public class Jugador {
 	public String getPuntuacion() {
 		return "La puntuacion de " + this.nombre + " es " + this.puntuacion.toString();
 	}
+
+	public void setVentaja(boolean enVentaja) {
+	        if(enVentaja){
+	        	if(this.enDeuce){ 
+	        		this.enVentaja = enVentaja;
+	        	}
+	        }else{
+	        	this.enVentaja = enVentaja;
+	        }
+	 }
+	 
+	 public Boolean getVentaja(){
+		 return this.enVentaja;
+	 }
 
 	public void pelotaGanada() {
 		if (this.puntuacion == 40) {
