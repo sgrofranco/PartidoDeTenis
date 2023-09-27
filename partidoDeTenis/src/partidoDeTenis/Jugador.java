@@ -6,18 +6,28 @@ public class Jugador {
 	private Integer puntuacion;
 	private Integer games;
 	private Integer set;
+	private Boolean enDeuce;
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
 		this.puntuacion = 0;
 		this.games = 0;
 		this.set = 0;
+		this.enDeuce = false;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
+	 public void setDeuce(boolean enDeuce) {
+	        this.enDeuce = enDeuce;
+	 }
+	 
+	 public Boolean getDeuce() {
+	        return this.enDeuce;
+	 }
+	
 	public String getPuntuacion() {
 		return "La puntuacion de " + this.nombre + " es " + this.puntuacion.toString();
 	}
