@@ -17,6 +17,5 @@ public class Juego {
 	public void pelotaGanadaParaJugador2() {
 		this.jugador2.pelotaGanada();
 	}
-	
 
 }

@@ -101,5 +101,9 @@ public class Jugador {
 		this.puntuacion = 0;
 		this.set = 0;
 	}
+	
+	public void imprimirPuntuacionDeJugador() {
+		System.out.println(this.nombre+": "+ this.set+"/"+this.games+"/"+this.puntuacion);
+	}
 
 }

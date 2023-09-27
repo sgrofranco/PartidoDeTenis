@@ -96,7 +96,7 @@ class JugadorTest {
 		for (int i = 0; i < 72; i++) {
 			jugador.pelotaGanada();
 		}
-		assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
+		assertEquals(true, jugador.getGanador());
 	}
 
 	@Test
@@ -130,6 +130,21 @@ class JugadorTest {
 		Jugador jugador = new Jugador("Franco");
 		jugador.setVentaja(true);
 		assertEquals(false, jugador.getVentaja());
+	}
+	
+	@Test
+	public void imprimirPuntajeDelJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.imprimirPuntuacionDeJugador();
+		assertEquals("Franco: 0/1/40", outputStreamCaptor.toString().trim());
+		
 	}
 
 }
