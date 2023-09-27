@@ -64,7 +64,34 @@ class JuegoTest {
 		assertEquals(true, tenis.verSiJugadoresEstanEnDeuce());
 	}
 	
-	
+	@Test
+	void jugadorFrancoEstaEnVentaja() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco,David);
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador1();
+		assertEquals(true, Franco.getVentaja());
+	}
+	@Test
+	void jugadorDavidEstaEnVentaja() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco,David);
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		assertEquals(true, David.getVentaja());
+	}
 
 
 }
