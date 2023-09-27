@@ -36,7 +36,7 @@ class JuegoTest {
 		for(int i = 0; i < 72 ; i++) {
 			tenis.pelotaGanadaParaJugador1();
 		}
-		assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
+		assertEquals(true, Franco.getGanador());
 	}
 	
 	@Test
@@ -47,8 +47,24 @@ class JuegoTest {
 		for(int i = 0; i < 72 ; i++) {
 			tenis.pelotaGanadaParaJugador2();
 		}
-		assertEquals("Ha ganado el jugador David", outputStreamCaptor.toString().trim());
+		assertEquals(true, David.getGanador());
 	}
+	
+	@Test
+	void verificarJuegoEstaEnDeuce() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco,David);
+		Franco.pelotaGanada();
+		Franco.pelotaGanada();
+		Franco.pelotaGanada();
+		David.pelotaGanada();
+		David.pelotaGanada();
+		David.pelotaGanada();
+		assertEquals(true, tenis.verSiJugadoresEstanEnDeuce());
+	}
+	
+	
 
 
 }

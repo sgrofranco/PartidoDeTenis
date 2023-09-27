@@ -17,5 +17,9 @@ public class Juego {
 	public void pelotaGanadaParaJugador2() {
 		this.jugador2.pelotaGanada();
 	}
+	
+	public Boolean verSiJugadoresEstanEnDeuce() {
+		return (this.jugador1.getPuntuacion() == 40 && this.jugador2.getPuntuacion() == 40);
+	}
 
 }
