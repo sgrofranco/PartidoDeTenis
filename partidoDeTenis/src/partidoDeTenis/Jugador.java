@@ -37,13 +37,23 @@ public class Jugador {
 	}
 
 	public void pelotaGanada() {
-		if (this.puntuacion == 40) {
-			this.puntuacion = 0;
-			gameGanado();
-		} else if (this.puntuacion < 30) {
-			this.puntuacion = this.puntuacion + 15;
-		} else {
-			this.puntuacion = this.puntuacion + 10;
+		if(enDeuce) {
+			if(enVentaja) {
+				this.puntuacion = 0;
+				gameGanado();
+			} else {
+				setVentaja(true);
+			}
+			
+		} else {		
+			if (this.puntuacion == 40) {
+				this.puntuacion = 0;
+				gameGanado();
+			} else if (this.puntuacion < 30) {
+				this.puntuacion = this.puntuacion + 15;
+			} else {
+				this.puntuacion = this.puntuacion + 10;
+			}
 		}
 	}
 

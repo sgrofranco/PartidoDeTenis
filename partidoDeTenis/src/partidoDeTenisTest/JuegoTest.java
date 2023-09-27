@@ -32,43 +32,43 @@ class JuegoTest {
 	void JuegoGanadoPorFranco() {
 		Jugador Franco = new Jugador("Franco");
 		Jugador David = new Jugador("David");
-		Juego tenis = new Juego(Franco,David);
-		for(int i = 0; i < 72 ; i++) {
+		Juego tenis = new Juego(Franco, David);
+		for (int i = 0; i < 72; i++) {
 			tenis.pelotaGanadaParaJugador1();
 		}
 		assertEquals(true, Franco.getGanador());
 	}
-	
+
 	@Test
 	void JuegoGanadoPorDavid() {
 		Jugador Franco = new Jugador("Franco");
 		Jugador David = new Jugador("David");
-		Juego tenis = new Juego(Franco,David);
-		for(int i = 0; i < 72 ; i++) {
+		Juego tenis = new Juego(Franco, David);
+		for (int i = 0; i < 72; i++) {
 			tenis.pelotaGanadaParaJugador2();
 		}
 		assertEquals(true, David.getGanador());
 	}
-	
+
 	@Test
 	void verificarJuegoEstaEnDeuce() {
 		Jugador Franco = new Jugador("Franco");
 		Jugador David = new Jugador("David");
-		Juego tenis = new Juego(Franco,David);
-		Franco.pelotaGanada();
-		Franco.pelotaGanada();
-		Franco.pelotaGanada();
-		David.pelotaGanada();
-		David.pelotaGanada();
-		David.pelotaGanada();
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
 		assertEquals(true, tenis.verSiJugadoresEstanEnDeuce());
 	}
-	
+
 	@Test
 	void jugadorFrancoEstaEnVentaja() {
 		Jugador Franco = new Jugador("Franco");
 		Jugador David = new Jugador("David");
-		Juego tenis = new Juego(Franco,David);
+		Juego tenis = new Juego(Franco, David);
 		tenis.pelotaGanadaParaJugador1();
 		tenis.pelotaGanadaParaJugador1();
 		tenis.pelotaGanadaParaJugador1();
@@ -78,11 +78,12 @@ class JuegoTest {
 		tenis.pelotaGanadaParaJugador1();
 		assertEquals(true, Franco.getVentaja());
 	}
+
 	@Test
 	void jugadorDavidEstaEnVentaja() {
 		Jugador Franco = new Jugador("Franco");
 		Jugador David = new Jugador("David");
-		Juego tenis = new Juego(Franco,David);
+		Juego tenis = new Juego(Franco, David);
 		tenis.pelotaGanadaParaJugador1();
 		tenis.pelotaGanadaParaJugador1();
 		tenis.pelotaGanadaParaJugador1();
@@ -92,6 +93,5 @@ class JuegoTest {
 		tenis.pelotaGanadaParaJugador2();
 		assertEquals(true, David.getVentaja());
 	}
-
 
 }
