@@ -94,4 +94,23 @@ class JuegoTest {
 		assertEquals(true, David.getVentaja());
 	}
 
+	@Test
+	void JugadorFrancoGanaGame() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador2();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		tenis.pelotaGanadaParaJugador1();
+		Franco.imprimirPuntuacionDeJugador();
+		assertEquals("Franco: 0/1/0", outputStreamCaptor.toString().trim());
+	}
+
 }
