@@ -36,7 +36,7 @@ class JuegoTest {
 		for(int i = 0; i < 72 ; i++) {
 			tenis.pelotaGanadaParaJugador1();
 		}
-		Assert.assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
+		assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ class JuegoTest {
 		for(int i = 0; i < 72 ; i++) {
 			tenis.pelotaGanadaParaJugador2();
 		}
-		Assert.assertEquals("Ha ganado el jugador David", outputStreamCaptor.toString().trim());
+		assertEquals("Ha ganado el jugador David", outputStreamCaptor.toString().trim());
 	}
 
 

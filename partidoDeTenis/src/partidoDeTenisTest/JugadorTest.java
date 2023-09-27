@@ -29,109 +29,107 @@ class JugadorTest {
 	@Test
 	void mostrarNombreDeJugadorFranco() {
 		Jugador jugador = new Jugador("Franco");
-		Assert.assertEquals("Franco",jugador.getNombre());
+		assertEquals("Franco", jugador.getNombre());
 	}
-	
-	@Test 
-	void obtenerPuntacionDeJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		Assert.assertEquals("La puntuacion de Franco es 0",jugador.getPuntuacion());
-	}
-	
-	@Test 
-	void UnaPelotaGanadaParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		jugador.pelotaGanada();
-		Assert.assertEquals("La puntuacion de Franco es 15",jugador.getPuntuacion());
-	}
-	
-	@Test 
-	void DosPelotsaGanadasParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		Assert.assertEquals("La puntuacion de Franco es 30",jugador.getPuntuacion());
-	}
-	
-	@Test 
-	void TresPelotsaGanadasParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		Assert.assertEquals("La puntuacion de Franco es 40",jugador.getPuntuacion());
-	}
-	
-	@Test 
-	void UnGameGanadoParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		jugador.pelotaGanada();
-		Assert.assertEquals("Los games de Franco son 1",jugador.getGames());
-	}
-	
-	
-	@Test 
-	void DosGamesGanadosParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		for(int i = 0; i < 8 ; i++) {
-			jugador.pelotaGanada();
-		}
-		Assert.assertEquals("Los games de Franco son 2",jugador.getGames());
-	}
-	
-	@Test 
-	void UnSetGanadosParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		for(int i = 0; i < 24 ; i++) {
-			jugador.pelotaGanada();
-		}
-		Assert.assertEquals("Los set de Franco son 1",jugador.getSet());
-	}
-	
-	@Test 
-	void TresSetGanadosParaJugadorFranco(){
-		Jugador jugador = new Jugador("Franco");
-		for(int i = 0; i < 72 ; i++) {
-			jugador.pelotaGanada();
-		}
-		Assert.assertEquals("Ha ganado el jugador Franco",outputStreamCaptor.toString()
-			      .trim());
-	}
-	
-	@Test 
-	void EstadisticasReiniciadasParaJugadorFrancoLuegoDeGanar(){
-		Jugador jugador = new Jugador("Franco");
-		for(int i = 0; i < 72 ; i++) {
-			jugador.pelotaGanada();
-		}
-		
-		Assert.assertEquals("Los set de Franco son 0",jugador.getSet());
-	}
-	
-	@Test 
-	public void jugadorFrancoEstaEnDeuce(){
-	    	Jugador jugador = new Jugador("Franco");
-	    	jugador.setDeuce(true);
-	    	assertEquals(true,jugador.getDeuce());
-    	
-       }
 
-	@Test 
-	public void jugadorFrancoEstaEnVentaja(){
-	    	Jugador jugador = new Jugador("Franco");
-	    	jugador.setDeuce(true);
-	    	jugador.setVentaja(true);
-	    	assertEquals(true,jugador.getVentaja());
+	@Test
+	void obtenerPuntacionDeJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		assertEquals( 0, jugador.getPuntuacion());
 	}
-    
-    	@Test 
-    	public void jugadorFrancoNoEstaEnVentajaPorNoEstarEnDeuce(){
-	    	Jugador jugador = new Jugador("Franco");
-	    	jugador.setVentaja(true);
-	    	assertEquals(false,jugador.getVentaja());
-    	}
-	
+
+	@Test
+	void UnaPelotaGanadaParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		assertEquals(15, jugador.getPuntuacion());
+	}
+
+	@Test
+	void DosPelotsaGanadasParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		assertEquals(30, jugador.getPuntuacion());
+	}
+
+	@Test
+	void TresPelotsaGanadasParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		assertEquals(40, jugador.getPuntuacion());
+	}
+
+	@Test
+	void UnGameGanadoParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		jugador.pelotaGanada();
+		assertEquals(1, jugador.getGames());
+	}
+
+	@Test
+	void DosGamesGanadosParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		for (int i = 0; i < 8; i++) {
+			jugador.pelotaGanada();
+		}
+		assertEquals(2, jugador.getGames());
+	}
+
+	@Test
+	void UnSetGanadosParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		for (int i = 0; i < 24; i++) {
+			jugador.pelotaGanada();
+		}
+		assertEquals(1, jugador.getSet());
+	}
+
+	@Test
+	void TresSetGanadosParaJugadorFranco() {
+		Jugador jugador = new Jugador("Franco");
+		for (int i = 0; i < 72; i++) {
+			jugador.pelotaGanada();
+		}
+		assertEquals("Ha ganado el jugador Franco", outputStreamCaptor.toString().trim());
+	}
+
+	@Test
+	void EstadisticasReiniciadasParaJugadorFrancoLuegoDeGanar() {
+		Jugador jugador = new Jugador("Franco");
+		for (int i = 0; i < 72; i++) {
+			jugador.pelotaGanada();
+		}
+
+		assertEquals(0, jugador.getSet());
+	}
+
+	@Test
+	public void jugadorFrancoEstaEnDeuce() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.setDeuce(true);
+		assertEquals(true, jugador.getDeuce());
+
+	}
+
+	@Test
+	public void jugadorFrancoEstaEnVentaja() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.setDeuce(true);
+		jugador.setVentaja(true);
+		assertEquals(true, jugador.getVentaja());
+	}
+
+	@Test
+	public void jugadorFrancoNoEstaEnVentajaPorNoEstarEnDeuce() {
+		Jugador jugador = new Jugador("Franco");
+		jugador.setVentaja(true);
+		assertEquals(false, jugador.getVentaja());
+	}
+
 }

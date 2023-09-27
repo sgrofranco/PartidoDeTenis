@@ -8,6 +8,7 @@ public class Jugador {
 	private Integer set;
 	private Boolean enDeuce;
 	private Boolean enVentaja;
+	private Boolean ganador;
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
@@ -16,37 +17,24 @@ public class Jugador {
 		this.set = 0;
 		this.enDeuce = false;
 		this.enVentaja = false;
+		this.ganador = false;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	 public void setDeuce(boolean enDeuce) {
-	        this.enDeuce = enDeuce;
-	 }
-	 
-	 public Boolean getDeuce() {
-	        return this.enDeuce;
-	 }
-	
-	public String getPuntuacion() {
-		return "La puntuacion de " + this.nombre + " es " + this.puntuacion.toString();
+	public void setDeuce(boolean enDeuce) {
+		this.enDeuce = enDeuce;
 	}
 
-	public void setVentaja(boolean enVentaja) {
-	        if(enVentaja){
-	        	if(this.enDeuce){ 
-	        		this.enVentaja = enVentaja;
-	        	}
-	        }else{
-	        	this.enVentaja = enVentaja;
-	        }
-	 }
-	 
-	 public Boolean getVentaja(){
-		 return this.enVentaja;
-	 }
+	public Boolean getDeuce() {
+		return this.enDeuce;
+	}
+
+	public Integer getPuntuacion() {
+		return this.puntuacion;
+	}
 
 	public void pelotaGanada() {
 		if (this.puntuacion == 40) {
@@ -59,38 +47,55 @@ public class Jugador {
 		}
 	}
 
+	public void setVentaja(boolean enVentaja) {
+		if (enVentaja) {
+			if (this.enDeuce) {
+				this.enVentaja = enVentaja;
+			}
+		} else {
+			this.enVentaja = enVentaja;
+		}
+	}
+
+	public Boolean getVentaja() {
+		return this.enVentaja;
+	}
+
 	private void gameGanado() {
-		
-		if( this.games<5) {
+
+		if (this.games < 5) {
 			this.games = this.games + 1;
 		} else {
 			this.games = 0;
 			setGanado();
 		}
 	}
-	
+
+	public Integer getGames() {
+		return this.games;
+	}
+
 	private void setGanado() {
-		if(this.set< 2) {	
-			this.set = this.set+1;
+		if (this.set < 2) {
+			this.set = this.set + 1;
 		} else {
 			jugadorGano();
 		}
 	}
 
-	private void jugadorGano() {
-		System.out.println("Ha ganado el jugador "+this.nombre);
-		reiniciarEstadisticas();
-		
+	public Integer getSet() {
+		return this.set;
 	}
 
-	public String getGames() {
-		return "Los games de " + this.nombre + " son " + this.games.toString();
+	private void jugadorGano() {
+		this.ganador = true;
+		reiniciarEstadisticas();
 	}
-	
-	public String getSet() {
-		return "Los set de " +this.nombre+ " son "+ this.set.toString();
+
+	public Boolean getGanador() {
+		return this.ganador;
 	}
-	
+
 	private void reiniciarEstadisticas() {
 		this.games = 0;
 		this.puntuacion = 0;
