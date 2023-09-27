@@ -93,7 +93,7 @@ class JuegoTest {
 		tenis.pelotaGanadaParaJugador2();
 		assertEquals(true, David.getVentaja());
 	}
-
+	
 	@Test
 	void JugadorFrancoGanaGame() {
 		Jugador Franco = new Jugador("Franco");

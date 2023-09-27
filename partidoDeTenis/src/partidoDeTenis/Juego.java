@@ -20,6 +20,7 @@ public class Juego {
 				jugador2.setDeuce(false);
 			} else if( jugador2.getVentaja()) {
 				this.jugador1.pelotaGanada();
+				jugador1.setVentaja(false);
 				jugador2.setVentaja(false);
 			} else {
 				this.jugador1.pelotaGanada();
@@ -45,6 +46,7 @@ public class Juego {
 			} else if( jugador1.getVentaja()) {
 				this.jugador2.pelotaGanada();
 				jugador1.setVentaja(false);
+				jugador2.setVentaja(false);
 			} else {
 				this.jugador2.pelotaGanada();
 			}
