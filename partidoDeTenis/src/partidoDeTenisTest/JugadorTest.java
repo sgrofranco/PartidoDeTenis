@@ -118,5 +118,20 @@ class JugadorTest {
 	    	assertEquals(true,jugador.getDeuce());
     	
        }
+
+	@Test 
+	public void jugadorFrancoEstaEnVentaja(){
+	    	Jugador jugador = new Jugador("Franco");
+	    	jugador.setDeuce(true);
+	    	jugador.setVentaja(true);
+	    	assertEquals(true,jugador.getVentaja());
+	}
+    
+    	@Test 
+    	public void jugadorFrancoNoEstaEnVentajaPorNoEstarEnDeuce(){
+	    	Jugador jugador = new Jugador("Franco");
+	    	jugador.setVentaja(true);
+	    	assertEquals(false,jugador.getVentaja());
+    	}
 	
 }
