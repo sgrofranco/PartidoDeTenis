@@ -10,57 +10,42 @@ public class Juego {
 		this.jugador2 = jugador2;
 	}
 	
-	public void pelotaGanadaParaJugador1() {
-		if(verSiJugadoresEstanEnDeuce()) {
-			if(jugador1.getVentaja()) {
-				this.jugador1.pelotaGanada();
-				jugador1.setVentaja(false);
-				jugador2.setVentaja(false);
-				jugador1.setDeuce(false);
-				jugador2.setDeuce(false);
-			} else if( jugador2.getVentaja()) {
-				this.jugador1.pelotaGanada();
-				jugador1.setVentaja(false);
-				jugador2.setVentaja(false);
-			} else {
-				this.jugador1.pelotaGanada();
-			}
-		} else if (jugador1.getPuntuacion() == 30 && jugador2.getPuntuacion() == 40){
+	public void pelotaGanadaParaJugador(Jugador jugador1, Jugador jugador2) {
+		if (verSiJugadoresEstanEnTieBreak()) {
+			
 
-			this.jugador1.pelotaGanada();
-			jugador1.setDeuce(true);
-			jugador2.setDeuce(true);
-		} else {
-			this.jugador1.pelotaGanada();
 		}
-	}
-	
-	public void pelotaGanadaParaJugador2() {
-		if(verSiJugadoresEstanEnDeuce()) {
-			if(jugador2.getVentaja()) {
-				this.jugador2.pelotaGanada();
+		if (verSiJugadoresEstanEnDeuce()) {
+			if (jugador1.getVentaja()) {
+				jugador1.pelotaGanada();
 				jugador1.setVentaja(false);
 				jugador2.setVentaja(false);
 				jugador1.setDeuce(false);
 				jugador2.setDeuce(false);
-			} else if( jugador1.getVentaja()) {
-				this.jugador2.pelotaGanada();
+			} else if (jugador2.getVentaja()) {
+				jugador1.pelotaGanada();
 				jugador1.setVentaja(false);
 				jugador2.setVentaja(false);
 			} else {
-				this.jugador2.pelotaGanada();
+				jugador1.pelotaGanada();
 			}
-		} else if (jugador2.getPuntuacion() == 30 && jugador1.getPuntuacion() == 40){
-			this.jugador2.pelotaGanada();
+		} else if (jugador1.getPuntuacion() == 30
+				&& jugador2.getPuntuacion() == 40) {
+
+			jugador1.pelotaGanada();
 			jugador1.setDeuce(true);
 			jugador2.setDeuce(true);
 		} else {
-			this.jugador2.pelotaGanada();
+			jugador1.pelotaGanada();
 		}
 	}
 	
 	public Boolean verSiJugadoresEstanEnDeuce() {
 		return (this.jugador1.getPuntuacion() == 40 && this.jugador2.getPuntuacion() == 40);
+	}
+
+	public Boolean verSiJugadoresEstanEnTieBreak() {
+		return (this.jugador1.getGames() == 6 && this.jugador2.getGames() == 6);
 	}
 
 }
