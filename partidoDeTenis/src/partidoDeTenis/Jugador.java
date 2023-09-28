@@ -9,6 +9,7 @@ public class Jugador {
 	private Boolean enDeuce;
 	private Boolean enVentaja;
 	private Boolean ganador;
+	private Boolean enTieBreak;
 
 	public Jugador(String nombre) {
 		this.nombre = nombre;
@@ -18,6 +19,7 @@ public class Jugador {
 		this.enDeuce = false;
 		this.enVentaja = false;
 		this.ganador = false;
+		this.enTieBreak = false;
 	}
 
 	public String getNombre() {
@@ -106,6 +108,14 @@ public class Jugador {
 		return this.ganador;
 	}
 
+	public Boolean getEnTieBreak() {
+		return this.enTieBreak;
+	}
+	
+	public void setEnTieBreak(boolean enTieBreak) {
+		this.enTieBreak = enTieBreak ;
+	}
+	
 	private void reiniciarEstadisticas() {
 		this.games = 0;
 		this.puntuacion = 0;
