@@ -147,4 +147,11 @@ class JugadorTest {
 		
 	}
 
+	@Test
+	public void jugadorEnTieBreak(){
+		Jugador jugador = new Jugador("Franco");
+		jugador.setEnTieBreak(true);
+		assertEquals(true,jugador.getEnTieBreak());
+	}
+
 }
