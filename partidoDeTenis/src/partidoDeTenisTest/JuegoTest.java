@@ -113,4 +113,67 @@ class JuegoTest {
 		assertEquals("Franco: 0/1/0", outputStreamCaptor.toString().trim());
 	}
 
+	@Test
+	public void verificarJuegoEstaEnDeuce() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		assertEquals(true, tenis.verSiJugadoresEstanEnDeuce());
+	}
+
+	@Test
+	public void jugadorFrancoEstaEnVentaja() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		assertEquals(true, Franco.getVentaja());
+	}
+
+	@Test
+	public void jugadorDavidEstaEnVentaja() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(Franco,David);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		assertEquals(true, David.getVentaja());
+	}
+	
+	@Test
+	public void JugadorFrancoGanaGame() {
+		Jugador Franco = new Jugador("Franco");
+		Jugador David = new Jugador("David");
+		Juego tenis = new Juego(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(David,Franco);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		tenis.pelotaGanadaParaJugador(Franco, David);
+		Franco.imprimirPuntuacionDeJugador();
+		assertEquals("Franco: 0/1/0", outputStreamCaptor.toString().trim());
+	}
+
 }
