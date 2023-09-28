@@ -11,10 +11,6 @@ public class Juego {
 	}
 	
 	public void pelotaGanadaParaJugador(Jugador jugador1, Jugador jugador2) {
-		if (verSiJugadoresEstanEnTieBreak()) {
-			
-
-		}
 		if (verSiJugadoresEstanEnDeuce()) {
 			if (jugador1.getVentaja()) {
 				jugador1.pelotaGanada();
